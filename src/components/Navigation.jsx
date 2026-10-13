@@ -56,7 +56,18 @@ export default function Navigation() {
           FAQ
         </p>
       </div>
-      <div className="navigation-right">
+      <div className="navigation-right" style={{ display: 'flex', gap: '0.6vw', alignItems: 'center' }}>
+        <a
+          href="/Resume/Ritik_DA.pdf"
+          download="Ritik_DA.pdf"
+          className="navigation-right-button"
+          style={{ textDecoration: 'none', backgroundColor: '#1b1b1b', borderColor: '#1b1b1b' }}
+          title="Download Resume"
+        >
+          <p className="description white" style={{ fontWeight: 600 }}>
+            Resume
+          </p>
+        </a>
         <a
           href="mailto:rk7703463@gmail.com"
           className="navigation-right-button"

@@ -104,6 +104,58 @@ export default function Footer() {
           >
             +91 96931 49491
           </a>
+          <a
+            href="https://www.linkedin.com/in/u-r-ri8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="description black"
+            style={{
+              textDecoration: 'none',
+              padding: '0.6rem 1.2rem',
+              backgroundColor: '#ffffff',
+              border: '1px solid #1b1b1b',
+              color: '#1b1b1b',
+              borderRadius: '8px',
+              transition: 'all 0.2s ease',
+              fontWeight: 500
+            }}
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://www.credly.com/users/i.ritik"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="description black"
+            style={{
+              textDecoration: 'none',
+              padding: '0.6rem 1.2rem',
+              backgroundColor: '#ffffff',
+              border: '1px solid #1b1b1b',
+              color: '#1b1b1b',
+              borderRadius: '8px',
+              transition: 'all 0.2s ease',
+              fontWeight: 500
+            }}
+          >
+            Credly
+          </a>
+          <a
+            href="/Resume/Ritik_DA.pdf"
+            download="Ritik_DA.pdf"
+            className="description black"
+            style={{
+              textDecoration: 'none',
+              padding: '0.6rem 1.2rem',
+              backgroundColor: '#ff7120',
+              color: '#1b1b1b',
+              borderRadius: '8px',
+              transition: 'all 0.2s ease',
+              fontWeight: 600
+            }}
+          >
+            Download Resume
+          </a>
           <span className="description grey" style={{ fontWeight: 500 }}>
             Data Analyst | SQL · Power BI · Advanced Excel
           </span>

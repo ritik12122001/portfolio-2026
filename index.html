@@ -24,6 +24,36 @@
     <link rel="preload" as="image" href="/images/tech/firebase.svg" />
     <link rel="preload" as="image" href="/images/tech/gcp.svg" />
     <link rel="preload" as="image" href="/images/ritik_card.webp" />
+    <!-- Anti-Flood Client Guard -->
+    <script>
+      (function() {
+        try {
+          var now = Date.now();
+          var history = JSON.parse(sessionStorage.getItem('__req_hist') || '[]');
+          history = history.filter(function(t) { return now - t < 10000; });
+          history.push(now);
+          sessionStorage.setItem('__req_hist', JSON.stringify(history));
+
+          if (history.length > 8) {
+            window.__isRateLimited = true;
+            document.addEventListener('DOMContentLoaded', function() {
+              document.body.innerHTML = '<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:sans-serif;background:#0f172a;color:#f8fafc;padding:2rem;text-align:center;"><h1 style="font-size:2rem;color:#f87171;margin-bottom:0.5rem;">⚠️ Request Cooldown Active</h1><p style="font-size:1.1rem;color:#94a3b8;max-width:480px;line-height:1.6;">Multiple rapid reloads or requests were detected. A temporary 30-second cooldown has been applied to protect site availability.</p><p style="margin-top:1.5rem;font-weight:600;color:#38bdf8;" id="__cd_timer">Please wait 30s...</p></div>';
+              var remaining = 30;
+              var iv = setInterval(function() {
+                remaining--;
+                var el = document.getElementById('__cd_timer');
+                if (el) el.innerText = 'Please wait ' + remaining + 's...';
+                if (remaining <= 0) {
+                  clearInterval(iv);
+                  sessionStorage.removeItem('__req_hist');
+                  window.location.reload();
+                }
+              }, 1000);
+            });
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
